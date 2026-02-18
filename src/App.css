@@ -101,6 +101,22 @@
   margin-top: 1px;
 }
 
+/* Location breakdown — WI-013 */
+.location-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.location-section__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
 /* Jobs Table — WI-014 */
 .jobs-table-wrapper {
   display: flex;

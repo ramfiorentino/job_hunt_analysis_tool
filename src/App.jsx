@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { fetchJobs } from './api/client'
 import { analyzeSalaries } from './analysis/salary'
+import { analyzeLocations } from './analysis/location'
 import SalaryChart from './components/SalaryChart'
+import LocationBreakdown from './components/LocationBreakdown'
 import JobsTable from './components/JobsTable'
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
   }, [])
 
   const salaryStats = analyzeSalaries(jobs)
+  const locationData = analyzeLocations(jobs)
 
   return (
     <div className="app">
@@ -53,7 +56,9 @@ function App() {
 
         <section className="panel">
           <h2 className="panel__title">Location &amp; Remote</h2>
-          <p className="panel__placeholder">Charts — coming in WI-013</p>
+          {loading && <p className="panel__placeholder">Loading…</p>}
+          {error && <p className="panel__error">Error: {error}</p>}
+          {!loading && !error && <LocationBreakdown locationData={locationData} />}
         </section>
 
         <section className="panel panel--wide">
