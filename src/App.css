@@ -62,3 +62,219 @@
   color: #dc2626;
   font-size: 0.875rem;
 }
+
+/* Salary stats row */
+.salary-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.salary-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+  min-width: 72px;
+}
+
+.salary-stat--muted {
+  opacity: 0.65;
+}
+
+.salary-stat__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9ba3af;
+}
+
+.salary-stat__value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 1px;
+}
+
+/* Location breakdown */
+.location-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.location-section__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+/* Jobs Table */
+.jobs-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jobs-table__count {
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.jobs-table-scroll {
+  overflow-x: auto;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.jobs-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.jobs-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: top;
+}
+
+.jobs-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.jobs-table__link {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.jobs-table__link:hover {
+  text-decoration: underline;
+}
+
+.jobs-table__salary {
+  white-space: nowrap;
+}
+
+.jobs-table__keywords {
+  max-width: 200px;
+  color: #6b7280;
+}
+
+.jobs-table__empty {
+  text-align: center;
+  padding: 2rem;
+  color: #9ba3af;
+  font-style: italic;
+}
+
+/* Jobs Table Filters */
+.jobs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.jobs-filter__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.jobs-filter__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jobs-filter__input {
+  padding: 0.375rem 0.625rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #111827;
+  background: #fff;
+  outline: none;
+}
+
+.jobs-filter__input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+.jobs-filter__salary-row {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+}
+
+.jobs-filter__salary-sep {
+  font-size: 0.8125rem;
+  color: #9ba3af;
+}
+
+.jobs-filter__salary-input {
+  width: 90px;
+}
+
+.jobs-filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  align-items: center;
+}
+
+.jobs-filter__chip {
+  padding: 0.25rem 0.625rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background: #fff;
+  color: #374151;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.jobs-filter__chip--active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+
+.jobs-filter__clear {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  background: #f9fafb;
+  color: #6b7280;
+  align-self: flex-end;
+}
+
+.jobs-filter__clear:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
