@@ -153,13 +153,7 @@ This creates the OAuth credentials that let the app read your spreadsheet.
 
 ## 4. Create the .env File
 
-In the project root, create a `.env` file:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your values:
+Create a new file called `.env` in the project root (`job_hunt_analysis_tool/`). You can do this in your code editor — just create a new file, name it `.env`, and paste this content:
 
 ```
 SPREADSHEET_ID=paste-your-spreadsheet-id-here
@@ -167,9 +161,11 @@ JOBS_TAB_NAME=Job Listings
 SKILLS_TAB_NAME=Skills
 ```
 
-If you named your tabs differently, use those names instead.
+Then replace `paste-your-spreadsheet-id-here` with the actual Spreadsheet ID you copied in step 2.
 
-**This file is git-ignored** — it will not be committed.
+If you named your tabs differently in the spreadsheet, update those values to match.
+
+**This file is git-ignored** — it will not be committed to the repository.
 
 ---
 
