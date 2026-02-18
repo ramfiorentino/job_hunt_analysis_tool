@@ -55,7 +55,7 @@
 
 ## 7. Jobs Table with Filters (Phase 2)
 
-- [ ] 7.1 Build `JobsTable.jsx` — table displaying all listings with columns: title, company, salary, keywords, location, remote status, link
+- [ ] 7.1 Build `JobsTable.jsx` — table displaying all listings with columns: Job Title (linked to URL), Company, Salary, Keywords, Location, Remote Status, Industry, Company Size, Priority, Lead Source
 - [ ] 7.2 Add keyword filter — dropdown or multi-select to show only listings with selected keywords
 - [ ] 7.3 Add text search — filter rows where any field contains the search string
 - [ ] 7.4 Add salary range filter — min/max inputs to filter by parsed salary

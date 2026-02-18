@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Jobs table display
-The system SHALL render all job listings in a table with columns for title, company, salary, keywords, location, remote status, and a link to the original posting.
+The system SHALL render all job listings in a table with columns for Job Title (linked to URL), Company, Salary, Keywords, Location, Remote Status, and additional columns: Industry, Company Size, Priority, Lead Source.
 
 #### Scenario: Table renders all listings
 - **WHEN** the dashboard loads with job data

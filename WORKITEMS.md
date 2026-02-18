@@ -318,7 +318,7 @@ For the full task checklist: read `tasks.md`.
 | **Blocks** | WI-015 |
 | **Tasks** | `tasks.md` → 7.1, 7.5 |
 
-**Statement:** Build `JobsTable.jsx` (all listings, columns: title, company, salary, keywords, location, remote, link) and wire into `App.jsx`.
+**Statement:** Build `JobsTable.jsx` (all listings, columns: Job Title linked to URL, Company, Salary, Keywords, Location, Remote Status, Industry, Company Size, Priority, Lead Source) and wire into `App.jsx`.
 
 **Files:**
 - `src/components/JobsTable.jsx` (create)

@@ -16,7 +16,7 @@ The server SHALL expose a `GET /api/jobs` endpoint that reads the job listings t
 
 #### Scenario: Successful job data fetch
 - **WHEN** the frontend calls `GET /api/jobs`
-- **THEN** the server returns a JSON array where each object contains the job listing's fields (title, company, salary, keywords, location, remote status, description, URL)
+- **THEN** the server returns a JSON array where each object contains the job listing's fields (Job Title, URL, Company, Salary, Keywords, Location, Remote Status, Description, and any additional columns like Open Questions, Benefits, Industry, Company Size, Company Vibe, Latest Funding Round, Lead Source, Priority)
 
 #### Scenario: Empty spreadsheet
 - **WHEN** the job listings tab has only headers and no data rows
