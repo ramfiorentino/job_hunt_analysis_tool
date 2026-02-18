@@ -5,84 +5,54 @@
 
 ---
 
-## How to Use
+## Agents
 
-Each prompt is a **mission brief** — paste it into a new Claude Code session and let the agent figure out the implementation details from the project docs.
+| Name | Role | Sessions | Branch |
+|---|---|---|---|
+| **Lens** | Orchestrator + Phase 1 builder | This session (main) | `main` |
+| **Atlas** | Track A: Keywords + Skill Gap | Phase 2 terminal 1 | `track-a` |
+| **Bolt** | Track B: Salary + Location | Phase 2 terminal 2 | `track-b` |
+| **Coral** | Track C: Jobs Table + Filters | Phase 2 terminal 3 | `track-c` |
+| **Deep** | Phase 3: LLM backend + UI polish | Phase 3 session | `main` |
 
-- **Phase 1**: Run one prompt at a time, sequentially, all on `main`
-- **Phase 2**: Run 3 prompts simultaneously in 3 separate terminals
-- **Phase 3**: Run one prompt at a time, sequentially, on `main`
+**Lens** handles Phase 1 directly (no prompt needed — it's this session) and coordinates Phase 2 merge.
+**Atlas**, **Bolt**, and **Coral** run in parallel during Phase 2.
+**Deep** handles all of Phase 3 sequentially.
 
 ---
 
-## Phase 1: Foundation
+## How to Use
 
-Run these two prompts sequentially on the `main` branch. The first sets up the project, the second connects it to Google Sheets.
+1. **Phase 1** — Lens (this session) builds the foundation directly. No copy-paste needed.
+2. **Phase 2** — Open 3 new Claude Code terminals. Paste the Atlas, Bolt, and Coral prompts. Run in parallel.
+3. **Phase 2 merge** — Lens merges the 3 branches back into `main`.
+4. **Phase 3** — Open 1 new Claude Code session. Paste the Deep prompt. Run sequentially.
 
-### Prompt 1 — Scaffold + App Shell
+---
 
-```
-You are setting up the foundation for "Job Lens", a local web dashboard built with Vite + React + Express.
+## Phase 1: Foundation (Lens — this session)
 
-This is a greenfield project. Read these files for full context:
-- `openspec/changes/joblensv1/design.md` — architecture, project structure, tech decisions
-- `openspec/changes/joblensv1/specs/project-structure/spec.md` — scaffold requirements
-- `openspec/changes/joblensv1/specs/app-shell/spec.md` — dashboard shell requirements
-- `openspec/changes/joblensv1/tasks.md` — tasks 1.1 through 1.10
-- `WORKITEMS.md` — WI-001 and WI-002 for file lists
+No prompt needed. Lens builds WI-001 through WI-005 directly in this session on `main`.
 
-Your mission: complete WI-001 (project scaffold) and WI-002 (app shell). This means:
-- Initialize the Vite + React + JS project
-- Install all Phase 1-2 dependencies (see design.md)
-- Create the full folder structure with placeholder files
-- Configure Vite proxy, concurrent dev server, .gitignore
-- Build the "Job Lens" dashboard shell with 5 placeholder panels
-
-Work on the `main` branch. Verify `npm run dev` starts both servers and renders the dashboard. Commit each work item separately.
-```
-
-### Prompt 2 — Google Sheets Connection
-
-```
-You are connecting "Job Lens" to Google Sheets. The project scaffold is already set up on the `main` branch.
-
-Read these files for full context:
-- `openspec/changes/joblensv1/design.md` — architecture (Express as API proxy)
-- `openspec/changes/joblensv1/specs/sheets-connection/spec.md` — all requirements and scenarios
-- `openspec/changes/joblensv1/tasks.md` — tasks 2.1 through 2.8
-- `WORKITEMS.md` — WI-003, WI-004, and WI-005 for file lists
-
-Your mission: complete WI-003 (OAuth + config), WI-004 (data endpoints), and WI-005 (frontend API client). This means:
-- Implement Google Sheets OAuth 2.0 in server/sheets.js
-- Add spreadsheet configuration via .env
-- Build GET /api/jobs and GET /api/skills endpoints
-- Implement fetchJobs() and fetchSkills() in the frontend client
-- Wire a basic data fetch in App.jsx to verify the full pipeline
-
-Work on the `main` branch. Verify both endpoints return data from a live spreadsheet. Commit each work item separately.
-
-Note: The user will provide credentials.json and .env with their spreadsheet ID before you start.
-```
-
-**Phase 1 → Phase 2 gate:** Before moving on, verify the checklist in `ROADMAP.md` → Phase 1 → Phase 2 Gate.
+**Phase 1 → Phase 2 gate:** Verify the checklist in `ROADMAP.md` → Phase 1 → Phase 2 Gate.
 
 ---
 
 ## Phase 2: Core Analysis (3 Parallel Terminals)
 
-Before starting, create branches:
+Before starting, Lens creates branches:
 ```bash
 git checkout main && git checkout -b track-a
 git checkout main && git checkout -b track-b
 git checkout main && git checkout -b track-c
 ```
 
-Run these 3 prompts simultaneously, each in its own terminal.
+Then open 3 new Claude Code terminals and paste the corresponding prompt into each.
 
-### Terminal 1 — Track A: Keywords + Skill Gap
+### Atlas — Track A: Keywords + Skill Gap
 
 ```
-You are building the keyword analysis and skill gap features for "Job Lens". The foundation (Phase 1) is complete on `main` — the app has working /api/jobs and /api/skills endpoints.
+You are Atlas, one of the agents building "Job Lens" — a local job analysis dashboard. The foundation (Phase 1) is complete on `main` — the app has working /api/jobs and /api/skills endpoints.
 
 Read these files for full context:
 - `openspec/changes/joblensv1/design.md` — architecture, analysis-in-frontend approach
@@ -99,13 +69,13 @@ Your mission: complete all 4 work items in sequence on the `track-a` branch:
 
 Work on the `track-a` branch. Commit each work item separately. After WI-009, verify both charts render with live data from the spreadsheet.
 
-Note: You are running in parallel with Track B (salary + location) and Track C (jobs table) on their own branches. You don't need to coordinate with them — just stay on track-a.
+You are running in parallel with Bolt (Track B, salary + location) and Coral (Track C, jobs table) on their own branches. You don't need to coordinate with them — just stay on track-a.
 ```
 
-### Terminal 2 — Track B: Salary + Location
+### Bolt — Track B: Salary + Location
 
 ```
-You are building the salary analysis and location breakdown features for "Job Lens". The foundation (Phase 1) is complete on `main` — the app has working /api/jobs and /api/skills endpoints.
+You are Bolt, one of the agents building "Job Lens" — a local job analysis dashboard. The foundation (Phase 1) is complete on `main` — the app has working /api/jobs and /api/skills endpoints.
 
 Read these files for full context:
 - `openspec/changes/joblensv1/design.md` — architecture, analysis-in-frontend approach
@@ -122,15 +92,15 @@ Your mission: complete all 4 work items in sequence on the `track-b` branch:
 
 Work on the `track-b` branch. Commit each work item separately. After WI-013, verify both panels render with live data.
 
-IMPORTANT: parseSalary() from WI-010 will be reused by Track C for the salary range filter. Keep it a clean, standalone export. Track C will cherry-pick your WI-010 commit when they need it.
+IMPORTANT: parseSalary() from WI-010 will be reused by Coral (Track C) for the salary range filter. Keep it a clean, standalone export. Coral will cherry-pick your WI-010 commit when they need it.
 
-Note: You are running in parallel with Track A (keywords + skill gap) and Track C (jobs table) on their own branches.
+You are running in parallel with Atlas (Track A, keywords + skill gap) and Coral (Track C, jobs table) on their own branches.
 ```
 
-### Terminal 3 — Track C: Jobs Table
+### Coral — Track C: Jobs Table
 
 ```
-You are building the jobs table with filters for "Job Lens". The foundation (Phase 1) is complete on `main` — the app has working /api/jobs endpoint.
+You are Coral, one of the agents building "Job Lens" — a local job analysis dashboard. The foundation (Phase 1) is complete on `main` — the app has working /api/jobs endpoint.
 
 Read these files for full context:
 - `openspec/changes/joblensv1/specs/jobs-table/spec.md` — all requirements and scenarios
@@ -144,17 +114,17 @@ Your mission: complete 2 work items on the `track-c` branch:
 
 Work on the `track-c` branch. Commit each work item separately.
 
-CROSS-TRACK DEPENDENCY for WI-015: The salary range filter needs parseSalary() from src/analysis/salary.js, which is being built by Track B (WI-010). Before starting WI-015:
-1. Check if Track B has committed WI-010: `git log track-b --oneline`
+CROSS-TRACK DEPENDENCY for WI-015: The salary range filter needs parseSalary() from src/analysis/salary.js, which is being built by Bolt (Track B, WI-010). Before starting WI-015:
+1. Check if Bolt has committed WI-010: `git log track-b --oneline`
 2. Cherry-pick it: `git cherry-pick <WI-010-commit-hash>`
-3. If Track B isn't done yet, build WI-014 first and wait for the WI-010 commit before doing WI-015.
+3. If Bolt isn't done yet, build WI-014 first and wait for the WI-010 commit before doing WI-015.
 
-Note: You are running in parallel with Track A and Track B on their own branches.
+You are running in parallel with Atlas (Track A) and Bolt (Track B) on their own branches.
 ```
 
-### After All 3 Tracks Complete — Phase 2 Merge
+### Phase 2 Merge (Lens — this session)
 
-This one you do yourself (not an agent):
+After Atlas, Bolt, and Coral all report done, Lens merges:
 
 ```bash
 git checkout main
@@ -167,62 +137,45 @@ Verify the checklist in `ROADMAP.md` → Phase 2 → Phase 3 Gate.
 
 ---
 
-## Phase 3: LLM Integration & Polish
+## Phase 3: LLM Integration & Polish (Deep)
 
-Run these two prompts sequentially on the `main` branch (after Phase 2 merge).
+Open 1 new Claude Code session and paste this prompt. Deep handles both the backend and frontend work sequentially.
 
-### Prompt 1 — Claude API Backend
+### Deep — LLM Backend + Insights UI + Dashboard Polish
 
 ```
-You are adding Claude LLM integration to "Job Lens". Phase 2 is complete — the dashboard has 5 working analysis panels.
+You are Deep, the final agent building "Job Lens" — a local job analysis dashboard. Phase 2 is complete — the dashboard has 5 working analysis panels (keywords, skill gap, salary, location, jobs table with filters).
 
 Read these files for full context:
 - `openspec/changes/joblensv1/design.md` — LLM caching strategy, architecture
-- `openspec/changes/joblensv1/specs/llm-analysis/spec.md` — all requirements and scenarios
-- `openspec/changes/joblensv1/tasks.md` — tasks 8.1 through 8.6 and 9.1
-- `WORKITEMS.md` — WI-016 and WI-017 for file lists
-
-Your mission: complete WI-016 (Claude API setup) and WI-017 (description analysis + caching):
-- Set up @anthropic-ai/sdk with graceful degradation when key is missing
-- Implement description analysis via Claude API with structured JSON output
-- Implement file-based caching (.llm-cache.json, keyed by description hash)
-- Add POST /api/analyze endpoint and GET /api/llm-status endpoint
-
-Work on the `main` branch. Commit each work item separately. Verify: server starts without API key (no errors, LLM disabled), and with API key (analysis works, results are cached).
-```
-
-### Prompt 2 — LLM Insights UI + Dashboard Polish
-
-```
-You are building the final layer of "Job Lens" — LLM insights and dashboard polish. The Claude API backend is working (Phase 3 backend is complete).
-
-Read these files for full context:
-- `openspec/changes/joblensv1/specs/llm-analysis/spec.md` — insights display requirements
-- `openspec/changes/joblensv1/tasks.md` — tasks 9.2 through 9.4 (insights) and 10.1 through 10.5 (polish)
-- `WORKITEMS.md` — WI-018 and WI-019 for file lists
+- `openspec/changes/joblensv1/specs/llm-analysis/spec.md` — all LLM requirements and scenarios
+- `openspec/changes/joblensv1/tasks.md` — tasks 8.1 through 8.6 (API setup), 9.1 through 9.4 (insights), and 10.1 through 10.5 (polish)
+- `WORKITEMS.md` — WI-016 through WI-019 for file lists and dependencies
 - `src/App.jsx` and all files in `src/components/` — current state of the dashboard
 
-Your mission: complete WI-018 (LLM insights display) and WI-019 (dashboard polish):
-- Add LLM status check and description analysis to the frontend API client
-- Build LLM insights panel (extracted skills, role clusters, seniority distribution)
-- Integrate LLM-extracted skills into existing keyword and skill gap views
-- Polish the full dashboard: layout grid, visual consistency, loading states, error handling
+Your mission: complete all 4 work items in sequence on the `main` branch:
+1. WI-016: Claude API setup — install @anthropic-ai/sdk, implement client in server/llm.js, graceful degradation when key is missing
+2. WI-017: Description analysis + caching — POST /api/analyze endpoint, Claude API calls, .llm-cache.json file-based cache
+3. WI-018: LLM insights display — insights panel, integrate extracted skills into keyword and skill gap views
+4. WI-019: Dashboard polish — layout grid, visual consistency, loading states, error handling
 
-Work on the `main` branch. Commit each work item separately. Final verification: everything in ROADMAP.md → Phase 3 → Done Gate.
+Work on the `main` branch. Commit each work item separately.
+
+Verify WI-016/WI-017: server starts without API key (no errors, LLM disabled), and with key (analysis works, results cached).
+Final verification after WI-019: everything in ROADMAP.md → Phase 3 → Done Gate.
 ```
 
 ---
 
 ## Summary
 
-| Prompt | Phase | Branch | Work Items | When |
+| Agent | Phase | Branch | Work Items | When |
 |---|---|---|---|---|
-| Scaffold + App Shell | 1 | main | WI-001, WI-002 | First |
-| Sheets Connection | 1 | main | WI-003, WI-004, WI-005 | After Prompt 1 |
-| Track A: Keywords + Skill Gap | 2 | track-a | WI-006–WI-009 | After Phase 1 (parallel) |
-| Track B: Salary + Location | 2 | track-b | WI-010–WI-013 | After Phase 1 (parallel) |
-| Track C: Jobs Table | 2 | track-c | WI-014–WI-015 | After Phase 1 (parallel) |
-| Claude API Backend | 3 | main | WI-016, WI-017 | After Phase 2 merge |
-| LLM Insights + Polish | 3 | main | WI-018, WI-019 | After Prompt 6 |
+| **Lens** | 1 | main | WI-001–WI-005 | First (this session) |
+| **Atlas** | 2 | track-a | WI-006–WI-009 | After Phase 1 (parallel) |
+| **Bolt** | 2 | track-b | WI-010–WI-013 | After Phase 1 (parallel) |
+| **Coral** | 2 | track-c | WI-014–WI-015 | After Phase 1 (parallel) |
+| **Lens** | 2 merge | main | — | After Atlas + Bolt + Coral done |
+| **Deep** | 3 | main | WI-016–WI-019 | After Phase 2 merge |
 
-**7 prompts total. 3 run in parallel. Each agent reads the project docs to figure out implementation details.**
+**5 agents. 7 sessions (Lens runs twice). 3 run in parallel during Phase 2.**
