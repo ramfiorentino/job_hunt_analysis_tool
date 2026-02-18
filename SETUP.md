@@ -10,9 +10,9 @@ Two CSV templates are in `templates/`. Import them into Google Sheets:
    - Rename the default "Sheet1" tab to **Job Listings** (right-click the tab name at the bottom)
    - Add these column headers in row 1:
 
-   | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |
-   |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-   | Job Title | URL | Company | Salary | Keywords | Location | Remote Status | Description | Open Questions | Benefits | Industry | Company Size | Company Vibe | Latest Funding Round | Lead Source | Priority |
+   | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q |
+   |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+   | Job Title | URL | Company | Salary | Contract | Keywords | Location | Remote Status | Description | Open Questions | Benefits | Industry | Company Size | Company Vibe | Latest Funding Round | Lead Source | Priority |
 
 4. Create a second tab (click the **+** at the bottom) and name it **Skills**
    - Add these column headers in row 1:
@@ -40,6 +40,7 @@ Two CSV templates are in `templates/`. Import them into Google Sheets:
 
 | Column | What to put | Example |
 |---|---|---|
+| **Contract** | Contract type | Full-time, Part-time, Freelance |
 | **Open Questions** | Notes/questions about the role | What's the team size? |
 | **Benefits** | Notable benefits | Stock options, 30 days PTO |
 | **Industry** | Company's industry | Fintech |

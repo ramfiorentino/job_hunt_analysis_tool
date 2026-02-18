@@ -1,6 +1,6 @@
 ## Why
 
-A software developer is actively job hunting and manually curating a growing list of job listings in a Google Spreadsheet (adding and pruning weekly). The spreadsheet captures structured data (Job Title, URL, Company, Salary, Keywords, Location, Remote Status) plus full job descriptions and personal tracking fields (Open Questions, Benefits, Industry, Company Size, Company Vibe, Latest Funding Round, Lead Source, Priority). All listings are in English only. A second tab lists the developer's own skills, categorized and rated by proficiency.
+A software developer is actively job hunting and manually curating a growing list of job listings in a Google Spreadsheet (adding and pruning weekly). The spreadsheet captures structured data (Job Title, URL, Company, Salary, Contract, Keywords, Location, Remote Status) plus full job descriptions and personal tracking fields (Open Questions, Benefits, Industry, Company Size, Company Vibe, Latest Funding Round, Lead Source, Priority). All listings are in English only. A second tab lists the developer's own skills, categorized and rated by proficiency.
 
 The problem is **data without insight**. The spreadsheet grows but offers no way to systematically spot patterns — which skills dominate the market, where salary ranges cluster, how the developer's skill set compares to demand, or what deeper patterns hide in job descriptions. Career decisions (what to learn, where to apply, what salary to target) are made on gut feel instead of evidence.
 
