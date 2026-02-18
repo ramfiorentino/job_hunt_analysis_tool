@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { fetchJobs, fetchSkills } from './api/client.js'
 import { getKeywordFrequencies } from './analysis/keywords.js'
+import { analyzeSkillGaps } from './analysis/skillGap.js'
 import { KeywordChart } from './components/KeywordChart.jsx'
+import { SkillGapHeatmap } from './components/SkillGapHeatmap.jsx'
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -26,6 +28,7 @@ function App() {
   }, [])
 
   const keywordFrequencies = getKeywordFrequencies(jobs)
+  const skillGapData = analyzeSkillGaps(keywordFrequencies, skills)
 
   return (
     <div className="app">
@@ -48,7 +51,13 @@ function App() {
 
         <section className="panel">
           <h2 className="panel__title">Skill Gap</h2>
-          <p className="panel__placeholder">Heatmap — coming next</p>
+          {loading ? (
+            <p className="panel__placeholder">Loading…</p>
+          ) : error ? (
+            <p className="panel__error">{error}</p>
+          ) : (
+            <SkillGapHeatmap skillGapData={skillGapData} />
+          )}
         </section>
 
         <section className="panel">
