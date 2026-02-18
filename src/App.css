@@ -100,3 +100,72 @@
   color: #111827;
   margin-top: 1px;
 }
+
+/* Jobs Table — WI-014 */
+.jobs-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jobs-table__count {
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.jobs-table-scroll {
+  overflow-x: auto;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.jobs-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.jobs-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: top;
+}
+
+.jobs-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.jobs-table__link {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.jobs-table__link:hover {
+  text-decoration: underline;
+}
+
+.jobs-table__salary {
+  white-space: nowrap;
+}
+
+.jobs-table__keywords {
+  max-width: 200px;
+  color: #6b7280;
+}
+
+.jobs-table__empty {
+  text-align: center;
+  padding: 2rem;
+  color: #9ba3af;
+  font-style: italic;
+}

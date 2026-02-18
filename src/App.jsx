@@ -3,6 +3,7 @@ import './App.css'
 import { fetchJobs } from './api/client'
 import { analyzeSalaries } from './analysis/salary'
 import SalaryChart from './components/SalaryChart'
+import JobsTable from './components/JobsTable'
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -57,7 +58,9 @@ function App() {
 
         <section className="panel panel--wide">
           <h2 className="panel__title">Job Listings</h2>
-          <p className="panel__placeholder">Table with filters — coming in Phase 2 (Track C)</p>
+          {loading && <p className="panel__placeholder">Loading…</p>}
+          {error && <p className="panel__error">Error: {error}</p>}
+          {!loading && !error && <JobsTable jobs={jobs} />}
         </section>
       </main>
     </div>
