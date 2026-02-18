@@ -106,10 +106,11 @@ async function readSheet(tabName) {
   })
   const rows = response.data.values
   if (!rows || rows.length < 1) return []
+
   const [headers, ...dataRows] = rows
-  return dataRows.map(row =>
-    Object.fromEntries(headers.map((h, i) => [h, row[i] ?? '']))
-  )
+  return dataRows
+    .filter(row => row && row.some(cell => cell !== ''))
+    .map(row => Object.fromEntries(headers.map((h, i) => [h, row[i] ?? ''])))
 }
 
 export async function getJobs() {
