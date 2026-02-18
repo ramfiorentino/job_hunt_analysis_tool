@@ -129,3 +129,119 @@
   max-width: 200px;
   color: #6b7280;
 }
+
+.jobs-table__empty {
+  text-align: center;
+  padding: 2rem;
+  color: #9ba3af;
+  font-style: italic;
+}
+
+/* Jobs Table Filters — WI-015 */
+.jobs-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.jobs-filter__search {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  outline: none;
+}
+
+.jobs-filter__search:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+.jobs-filter__salary {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.jobs-filter__salary-input {
+  width: 110px;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  outline: none;
+}
+
+.jobs-filter__salary-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+.jobs-filter__salary-sep {
+  color: #9ba3af;
+  font-size: 0.875rem;
+}
+
+.jobs-filter__clear {
+  padding: 0.375rem 0.75rem;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.jobs-filter__clear:hover {
+  background: #e5e7eb;
+}
+
+.jobs-filter__kw-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.jobs-filter__kw-label {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  padding-top: 0.3rem;
+  white-space: nowrap;
+}
+
+.jobs-filter__kw-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.jobs-filter__kw-chip {
+  padding: 0.25rem 0.625rem;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #374151;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.jobs-filter__kw-chip:hover {
+  background: #e0e0ff;
+  border-color: #a5b4fc;
+}
+
+.jobs-filter__kw-chip--active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+
+.jobs-filter__kw-chip--active:hover {
+  background: #4338ca;
+  border-color: #4338ca;
+}
