@@ -1,4 +1,5 @@
 import './App.css'
+import JobsTable from './components/JobsTable'
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
 
         <section className="panel panel--wide">
           <h2 className="panel__title">Job Listings</h2>
-          <p className="panel__placeholder">Table with filters — coming in Phase 2</p>
+          <JobsTable />
         </section>
       </main>
     </div>
